@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { PdfDocument } from "./Template";
 
-export default function MovieList() {
+export default function Data() {
   const [cvDetails, setDetails] = useState({
     name: "Claudinei Bido",
     position: "Software Engineer"
