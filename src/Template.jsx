@@ -15,15 +15,14 @@ import {
 
 const primaryColor = "brown";
 const secondaryColor = "#fff";
-
 const textColor = "#666";
-
-//Create a red border in all the elements
-const debug = false;
 const padding = 30;
 const iconsWidth = 22;
 const iconsheight = 22;
-console.log(icons)
+
+//Create a red border in all the elements
+const debug = false;
+
 const debugProps = debug
   ? { borderWidth: 1, borderColor: "red", borderStyle: "solid" }
   : "";
@@ -98,6 +97,7 @@ const coverLetterStyles = StyleSheet.create({
     height: 100,
     display: "flex",
     flexDirection: "row",
+    lineHeight: 1.4,
     ...debugProps,
   },
 
@@ -108,7 +108,7 @@ const coverLetterStyles = StyleSheet.create({
     fontSize: 11,
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     ...debugProps,
   },
 
@@ -179,7 +179,7 @@ export function PdfDocument({ data }) {
               <Text>{data.address}</Text>
             </View>
             <View style={coverLetterStyles.contactItem}>
-              <Image style={coverLetterStyles.icons} src="/images/phone.png" />
+              <Image style={coverLetterStyles.icons} src={icons.phone} />
               <Text>{data.phone}</Text>
             </View>
             <View style={coverLetterStyles.contactItem}>
@@ -194,7 +194,7 @@ export function PdfDocument({ data }) {
           <View style={coverLetterStyles.bodyHead}>
             <View style={coverLetterStyles.bodyHeadCompany}>
               <Text>{data.recruiterName}</Text>
-              <Text>Tillhub</Text>
+              <Text>{data.companyName}</Text>
               <Text>Genthiner Str. 34</Text>
               <Text>10785 Berlin</Text>
             </View>
@@ -204,7 +204,7 @@ export function PdfDocument({ data }) {
           </View>
 
           <View style={coverLetterStyles.bodySubject}>
-            <Text>{"Subject: " + data.subject}</Text>
+            <Text>{"Subject: " + data.subject + data.companyName}</Text>
           </View>
 
           <View style={coverLetterStyles.bodyText}>

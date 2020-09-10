@@ -8,7 +8,7 @@ export default function Data() {
     position: "Software Engineer",
     address: "Landgrafenstr 19",
     phone: "+49 179 1037171",
-    subject: "Application Internship Full-Stack Developer at Tillhub",
+    subject: "Application Internship Full-Stack Developer at",
     email: "claudinei.bido@gmail.com",
     github: "https://github.com/bidodev",
     linkedin: "https://www.linkedin.com/in/bidoc/",
@@ -16,6 +16,7 @@ export default function Data() {
     regards: "Best Regards",
     recruiterName: "Oliver Kuhn",
     greetings: "Dear",
+    companyName: "Tillhub GmbH",
 
     //each object will render one paragraph
     contentCoverLetter: [
