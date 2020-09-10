@@ -1,4 +1,7 @@
 import React from "react";
+import { icons } from './constants';
+
+
 import moment from "moment";
 import {
   Page,
@@ -10,94 +13,112 @@ import {
   Link,
 } from "@react-pdf/renderer";
 
-const primaryColor = "#232e3d";
+const primaryColor = "brown";
+const secondaryColor = "#fff";
+
+const textColor = "#666";
 
 //Create a red border in all the elements
 const debug = false;
-const debugProps = debug ? { borderWidth: 1, borderColor: 'red', borderStyle: "solid" } : ''
+const padding = 30;
+const iconsWidth = 22;
+const iconsheight = 22;
+console.log(icons)
+const debugProps = debug
+  ? { borderWidth: 1, borderColor: "red", borderStyle: "solid" }
+  : "";
 
 const coverLetterStyles = StyleSheet.create({
   //head of the coverletter
   head: {
-    color: "white",
+    color: `${secondaryColor}`,
     width: 600,
-    height: 150,
+    height: 160,
     backgroundColor: `${primaryColor}`,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingRight: 20,
-    paddingLeft: 20,
-    ...debugProps
+    paddingRight: `${padding}`,
+    paddingLeft: `${padding}`,
   },
 
   //---- Start styles rules for the name and position ----//
   details: {
     width: "auto",
+    height: 50,
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
-    ...debugProps
   },
 
   heading: {
     fontSize: 25,
-    color: "#fff",
     textTransform: "uppercase",
     marginBottom: 2,
-    ...debugProps
   },
   subheading: {
-    fontSize: 15,
-    color: "#fff",
-    ...debugProps
+    fontSize: 14,
   },
   //---- End styles rules for the name and position ----//
 
   //container for the contact informations
   contact: {
-    width: 350,
-    height: 120,
+    height: 105,
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-end",
     justifyContent: "space-around",
-    ...debugProps
+    ...debugProps,
   },
 
   contactItem: {
-    fontSize: 12,
+    fontSize: 11,
     color: "#fff",
-    width: 250,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    ...debugProps
-  },
-
-  image: {
-    width: 24,
-    height: 24,
-    marginRight: 30,
-    ...debugProps
+    width: "auto",
+    ...debugProps,
   },
 
   //body of the coverletter
   body: {
-    color: "white",
+    color: `${textColor}`,
     width: 600,
-    height: 641.8,
+    minHeight: "636.8,",
+    height: "auto",
     display: "flex",
-    paddingRight: 20,
-    paddingLeft: 20,
-    ...debugProps
+    paddingRight: `${padding}`,
+    paddingLeft: `${padding}`,
+    
   },
 
   bodyHead: {
     height: 100,
-    ...debugProps
+    display: "flex",
+    flexDirection: "row",
+    ...debugProps,
+  },
+
+  bodyHeadCompany: {
+    alignSelf: "flex-end",
+    width: "auto",
+    height: "70%",
+    fontSize: 11,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    ...debugProps,
+  },
+
+  bodyHeadData: {
+    width: "auto",
+    flexGrow: 1,
+    alignSelf: "flex-end",
+    alignItems: "flex-end",
+    fontSize: 11,
+    ...debugProps,
   },
 
   bodySubject: {
@@ -107,35 +128,32 @@ const coverLetterStyles = StyleSheet.create({
     justifyContent: "center",
     color: `${primaryColor}`,
     fontStyle: "bold",
-    ...debugProps
   },
 
   bodyText: {
-    height: 485.9,
-    color: "#666",
-    fontSize: 12,
-    ...debugProps
+    height: "auto",
+    lineHeight: 1.4,
+    fontSize: 11,
+    ...debugProps,
   },
 
-    //footer of the coverletter
-    footer: {
-      color: "white",
-      width: 600,
-      height: 50,
-      backgroundColor: `${primaryColor}`,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      flexDirection: "row",
-      ...debugProps
-    },
-  
-    footerIcons: {
-      width: 32,
-      height: 32,
-      marginRight: 30,
-      ...debugProps
-    },
+  //footer of the coverletter
+  footer: {
+    color: `${secondaryColor}`,
+    width: 600,
+    height: 45,
+    backgroundColor: `${primaryColor}`,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+
+  icons: {
+    width: `${iconsWidth}`,
+    height: `${iconsheight}`,
+    marginRight: 30,
+  },
 });
 
 export function PdfDocument({ data }) {
@@ -157,15 +175,15 @@ export function PdfDocument({ data }) {
           </View>
           <View style={coverLetterStyles.contact}>
             <View style={coverLetterStyles.contactItem}>
-              <Image style={coverLetterStyles.image} src="/images/home.png" />
+              <Image style={coverLetterStyles.icons} src={icons.address} />
               <Text>{data.address}</Text>
             </View>
             <View style={coverLetterStyles.contactItem}>
-              <Image style={coverLetterStyles.image} src="/images/phone.png" />
+              <Image style={coverLetterStyles.icons} src="/images/phone.png" />
               <Text>{data.phone}</Text>
             </View>
             <View style={coverLetterStyles.contactItem}>
-              <Image style={coverLetterStyles.image} src="/images/letter.png" />
+              <Image style={coverLetterStyles.icons} src="/images/letter.png" />
               <Text>{data.email}</Text>
             </View>
           </View>
@@ -174,7 +192,15 @@ export function PdfDocument({ data }) {
         {/* Cover Letter Body */}
         <View style={coverLetterStyles.body}>
           <View style={coverLetterStyles.bodyHead}>
-            <Text>{data.email}</Text>
+            <View style={coverLetterStyles.bodyHeadCompany}>
+              <Text>{data.recruiterName}</Text>
+              <Text>Tillhub</Text>
+              <Text>Genthiner Str. 34</Text>
+              <Text>10785 Berlin</Text>
+            </View>
+            <View style={coverLetterStyles.bodyHeadData}>
+              <Text>Berlin, 10 Setember 2020</Text>
+            </View>
           </View>
 
           <View style={coverLetterStyles.bodySubject}>
@@ -182,7 +208,13 @@ export function PdfDocument({ data }) {
           </View>
 
           <View style={coverLetterStyles.bodyText}>
-            <Text>{data.email}</Text>
+            <Text style={{marginBottom: 10}}>{`${data.greetings} ${data.recruiterName}`}</Text>
+            {/* generate paragraphs based on user input */}
+            {data.contentCoverLetter.map(({ id, text }) => (
+              <Text key={id} style={{marginBottom: 3}}>{text}</Text>
+            ))}
+            <Text style={{marginTop: 10}}>{data.regards}</Text>
+            <Text>{data.name}</Text>
           </View>
         </View>
 
@@ -190,19 +222,19 @@ export function PdfDocument({ data }) {
         <View style={coverLetterStyles.footer}>
           <Link src={data.github}>
             <Image
-              style={coverLetterStyles.footerIcons}
+              style={coverLetterStyles.icons}
               src="/images/github.png"
             />
           </Link>
           <Link src={data.linkedin}>
             <Image
-              style={coverLetterStyles.footerIcons}
+              style={coverLetterStyles.icons}
               src="/images/linkedin.png"
             />
           </Link>
           <Link src={data.website}>
             <Image
-              style={coverLetterStyles.footerIcons}
+              style={coverLetterStyles.icons}
               src="/images/www.png"
             />
           </Link>
