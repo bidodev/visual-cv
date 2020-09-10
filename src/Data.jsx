@@ -5,7 +5,10 @@ import { PdfDocument } from "./Template";
 export default function Data() {
   const [cvDetails, setDetails] = useState({
     name: "Claudinei Bido",
-    position: "Software Engineer"
+    position: "Software Engineer",
+    address: "Landgrafenstr 19",
+    phone: "+49 1791037171",
+    email: "claudinei.bido@gmail.com"
   });
 
   return (

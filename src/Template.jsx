@@ -15,24 +15,55 @@ const coverLetterStyles = StyleSheet.create({
     width: 600,
     height: 150,
     backgroundColor: "#232e3d",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "row",
   },
+
+  //container for the name and position
   details: {
-    width: 250,
+    width: 300,
     height: 150,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
   },
+
   heading: {
     fontSize: 25,
     color: "#fff",
-    textTransform: 'uppercase',
-    marginBottom: 2
+    textTransform: "uppercase",
+    marginBottom: 2,
   },
   subheading: {
     fontSize: 15,
     color: "#fff",
+  },
+
+  //container for the contact informations 
+  contact: {
+    width: 300,
+    height: 120,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+
+
+  contactItem: {
+    fontSize: 12,
+    color: "#fff",
+    width: 250,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  image: {
+    width: 24,
+    height: 24,
+    marginRight: 20,
   },
 });
 
@@ -50,6 +81,20 @@ export function PdfDocument({ data }) {
           <View style={coverLetterStyles.details}>
             <Text style={coverLetterStyles.heading}>{data.name}</Text>
             <Text style={coverLetterStyles.subheading}>{data.position}</Text>
+          </View>
+          <View style={coverLetterStyles.contact}>
+            <View style={coverLetterStyles.contactItem}>
+              <Image style={coverLetterStyles.image} src="/images/home.png" />
+              <Text>{data.address}</Text>
+            </View>
+            <View style={coverLetterStyles.contactItem}>
+              <Image style={coverLetterStyles.image} src="/images/phone.png" />
+              <Text>{data.phone}</Text>
+            </View>
+            <View style={coverLetterStyles.contactItem}>
+              <Image style={coverLetterStyles.image} src="/images/letter.png" />
+              <Text>{data.email}</Text>
+            </View>
           </View>
         </View>
       </Page>
