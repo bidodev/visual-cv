@@ -10,6 +10,8 @@ import {
 } from "@react-pdf/renderer";
 
 const coverLetterStyles = StyleSheet.create({
+
+  //head of the coverletter
   head: {
     color: "white",
     width: 600,
@@ -18,6 +20,34 @@ const coverLetterStyles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     flexDirection: "row",
+  },
+
+  //body of the coverletter
+  body: {
+      color: "white",
+      width: 600,
+      height: 641.8,
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "row",
+  },
+    
+  //footer of the coverletter
+  footer: {
+    color: "white",
+    width: 600,
+    height: 50,
+    backgroundColor: "#232e3d",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+
+  footerIcons: {
+    width: 32,
+    height: 32,
+    marginRight: 30,
   },
 
   //container for the name and position
@@ -51,7 +81,6 @@ const coverLetterStyles = StyleSheet.create({
     justifyContent: "space-around",
   },
 
-
   contactItem: {
     fontSize: 12,
     color: "#fff",
@@ -77,6 +106,7 @@ export function PdfDocument({ data }) {
     <Document>
       {/* Cover Letter */}
       <Page size="A4">
+        {/* Cover Letter Head */}
         <View style={coverLetterStyles.head}>
           <View style={coverLetterStyles.details}>
             <Text style={coverLetterStyles.heading}>{data.name}</Text>
@@ -97,11 +127,24 @@ export function PdfDocument({ data }) {
             </View>
           </View>
         </View>
+
+        {/* Cover Letter Body */}
+        <View style={coverLetterStyles.body}>
+        </View>
+
+        {/* Cover Letter Footer */}
+        <View style={coverLetterStyles.footer}>
+          <Image style={coverLetterStyles.footerIcons} src="/images/github.png" />
+          <Image style={coverLetterStyles.footerIcons} src="/images/linkedin.png" />
+          <Image style={coverLetterStyles.footerIcons} src="/images/www.png" />
+        </View>
       </Page>
 
       {/* Curriculum Vitae */}
       <Page size="A4">
-        <View></View>
+        <View>
+        <Text>{data.address}</Text>
+        </View>
       </Page>
     </Document>
   );
