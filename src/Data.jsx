@@ -8,7 +8,11 @@ export default function Data() {
     position: "Software Engineer",
     address: "Landgrafenstr 19",
     phone: "+49 1791037171",
-    email: "claudinei.bido@gmail.com"
+    subject: "Application Internship Full-Stack Developer at Tillhub GmbH",
+    email: "claudinei.bido@gmail.com",
+    github: "https://github.com/bidodev",
+    linkedin: "https://www.linkedin.com/in/bidoc/",
+    website: "https://bido.dev/"
   });
 
   return (

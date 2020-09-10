@@ -7,57 +7,39 @@ import {
   Document,
   StyleSheet,
   Image,
+  Link,
 } from "@react-pdf/renderer";
 
-const coverLetterStyles = StyleSheet.create({
+const primaryColor = "#232e3d";
 
+//Create a red border in all the elements
+const debug = false;
+const debugProps = debug ? { borderWidth: 1, borderColor: 'red', borderStyle: "solid" } : ''
+
+const coverLetterStyles = StyleSheet.create({
   //head of the coverletter
   head: {
     color: "white",
     width: 600,
     height: 150,
-    backgroundColor: "#232e3d",
+    backgroundColor: `${primaryColor}`,
     display: "flex",
-    alignItems: "center",
     flexDirection: "row",
-  },
-
-  //body of the coverletter
-  body: {
-      color: "white",
-      width: 600,
-      height: 641.8,
-      display: "flex",
-      alignItems: "center",
-      flexDirection: "row",
-  },
-    
-  //footer of the coverletter
-  footer: {
-    color: "white",
-    width: 600,
-    height: 50,
-    backgroundColor: "#232e3d",
-    display: "flex",
     alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingRight: 20,
+    paddingLeft: 20,
+    ...debugProps
   },
 
-  footerIcons: {
-    width: 32,
-    height: 32,
-    marginRight: 30,
-  },
-
-  //container for the name and position
+  //---- Start styles rules for the name and position ----//
   details: {
-    width: 300,
-    height: 150,
+    width: "auto",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
+    ...debugProps
   },
 
   heading: {
@@ -65,20 +47,24 @@ const coverLetterStyles = StyleSheet.create({
     color: "#fff",
     textTransform: "uppercase",
     marginBottom: 2,
+    ...debugProps
   },
   subheading: {
     fontSize: 15,
     color: "#fff",
+    ...debugProps
   },
+  //---- End styles rules for the name and position ----//
 
-  //container for the contact informations 
+  //container for the contact informations
   contact: {
-    width: 300,
+    width: 350,
     height: 120,
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "flex-end",
     justifyContent: "space-around",
+    ...debugProps
   },
 
   contactItem: {
@@ -88,12 +74,68 @@ const coverLetterStyles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    ...debugProps
   },
+
   image: {
     width: 24,
     height: 24,
-    marginRight: 20,
+    marginRight: 30,
+    ...debugProps
   },
+
+  //body of the coverletter
+  body: {
+    color: "white",
+    width: 600,
+    height: 641.8,
+    display: "flex",
+    paddingRight: 20,
+    paddingLeft: 20,
+    ...debugProps
+  },
+
+  bodyHead: {
+    height: 100,
+    ...debugProps
+  },
+
+  bodySubject: {
+    height: 100,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    color: `${primaryColor}`,
+    fontStyle: "bold",
+    ...debugProps
+  },
+
+  bodyText: {
+    height: 485.9,
+    color: "#666",
+    fontSize: 12,
+    ...debugProps
+  },
+
+    //footer of the coverletter
+    footer: {
+      color: "white",
+      width: 600,
+      height: 50,
+      backgroundColor: `${primaryColor}`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexDirection: "row",
+      ...debugProps
+    },
+  
+    footerIcons: {
+      width: 32,
+      height: 32,
+      marginRight: 30,
+      ...debugProps
+    },
 });
 
 export function PdfDocument({ data }) {
@@ -105,7 +147,8 @@ export function PdfDocument({ data }) {
      */
     <Document>
       {/* Cover Letter */}
-      <Page size="A4">
+      {/* Default page size is A4 */}
+      <Page>
         {/* Cover Letter Head */}
         <View style={coverLetterStyles.head}>
           <View style={coverLetterStyles.details}>
@@ -130,20 +173,46 @@ export function PdfDocument({ data }) {
 
         {/* Cover Letter Body */}
         <View style={coverLetterStyles.body}>
+          <View style={coverLetterStyles.bodyHead}>
+            <Text>{data.email}</Text>
+          </View>
+
+          <View style={coverLetterStyles.bodySubject}>
+            <Text>{"Subject: " + data.subject}</Text>
+          </View>
+
+          <View style={coverLetterStyles.bodyText}>
+            <Text>{data.email}</Text>
+          </View>
         </View>
 
         {/* Cover Letter Footer */}
         <View style={coverLetterStyles.footer}>
-          <Image style={coverLetterStyles.footerIcons} src="/images/github.png" />
-          <Image style={coverLetterStyles.footerIcons} src="/images/linkedin.png" />
-          <Image style={coverLetterStyles.footerIcons} src="/images/www.png" />
+          <Link src={data.github}>
+            <Image
+              style={coverLetterStyles.footerIcons}
+              src="/images/github.png"
+            />
+          </Link>
+          <Link src={data.linkedin}>
+            <Image
+              style={coverLetterStyles.footerIcons}
+              src="/images/linkedin.png"
+            />
+          </Link>
+          <Link src={data.website}>
+            <Image
+              style={coverLetterStyles.footerIcons}
+              src="/images/www.png"
+            />
+          </Link>
         </View>
       </Page>
 
       {/* Curriculum Vitae */}
       <Page size="A4">
         <View>
-        <Text>{data.address}</Text>
+          <Text>{data.address}</Text>
         </View>
       </Page>
     </Document>
