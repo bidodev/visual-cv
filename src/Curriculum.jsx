@@ -1,8 +1,8 @@
 import React from "react";
 import { icons } from './constants';
 
+import generateData from './helpers/date';
 
-import moment from "moment";
 import {
   Page,
   Text,
@@ -13,9 +13,17 @@ import {
   Link,
 } from "@react-pdf/renderer";
 
-const primaryColor = "brown";
-const secondaryColor = "#fff";
-const textColor = "#666";
+
+export function Curriculum({ data, colors }) {
+
+  const { day, month, year } = generateData();
+
+//design variables
+  const { primaryColor, secondaryColor, textColor } = colors;
+  
+//data variables
+  const {name, position, street, city, postCode, houseNumber, phone, subject, email,  } = data;
+  
 const padding = 30;
 const iconsWidth = 22;
 const iconsheight = 22;
@@ -155,8 +163,7 @@ const coverLetterStyles = StyleSheet.create({
     marginRight: 30,
   },
 });
-
-export function PdfDocument({ data }) {
+  
   return (
     /**
      * This component represents the PDF document itself.
@@ -170,21 +177,21 @@ export function PdfDocument({ data }) {
         {/* Cover Letter Head */}
         <View style={coverLetterStyles.head}>
           <View style={coverLetterStyles.details}>
-            <Text style={coverLetterStyles.heading}>{data.name}</Text>
-            <Text style={coverLetterStyles.subheading}>{data.position}</Text>
+            <Text style={coverLetterStyles.heading}>{name}</Text>
+            <Text style={coverLetterStyles.subheading}>{position}</Text>
           </View>
           <View style={coverLetterStyles.contact}>
             <View style={coverLetterStyles.contactItem}>
               <Image style={coverLetterStyles.icons} src={icons.address} />
-              <Text>{data.address}</Text>
+              <Text>{`${street} ${houseNumber}, ${postCode} ${city}`}</Text>
             </View>
             <View style={coverLetterStyles.contactItem}>
               <Image style={coverLetterStyles.icons} src={icons.phone} />
-              <Text>{data.phone}</Text>
+              <Text>{phone}</Text>
             </View>
             <View style={coverLetterStyles.contactItem}>
               <Image style={coverLetterStyles.icons} src="/images/letter.png" />
-              <Text>{data.email}</Text>
+              <Text>{email}</Text>
             </View>
           </View>
         </View>
@@ -195,16 +202,16 @@ export function PdfDocument({ data }) {
             <View style={coverLetterStyles.bodyHeadCompany}>
               <Text>{data.recruiterName}</Text>
               <Text>{data.companyName}</Text>
-              <Text>Genthiner Str. 34</Text>
-              <Text>10785 Berlin</Text>
+              <Text>{data.companyAddress}</Text>
+              <Text>{`${data.companyPostCode} ${data.companyCity}`}</Text>
             </View>
             <View style={coverLetterStyles.bodyHeadData}>
-              <Text>Berlin, 10 Setember 2020</Text>
+              <Text>{`${data.city}, ${day} ${month} ${year}`}</Text>
             </View>
           </View>
 
           <View style={coverLetterStyles.bodySubject}>
-            <Text>{"Subject: " + data.subject + data.companyName}</Text>
+            <Text>{`Subject: ${data.subject} ${data.companyName}`}</Text>
           </View>
 
           <View style={coverLetterStyles.bodyText}>
