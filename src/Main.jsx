@@ -1,7 +1,12 @@
 import React from "react";
 import { icons } from './constants';
 
+import UserDetails from './UserDetails';
+
 import generateData from './helpers/date';
+
+//Curriculum
+import Curriculum from './curriculum/curriculum.component'
 
 import {
   Page,
@@ -14,7 +19,7 @@ import {
 } from "@react-pdf/renderer";
 
 
-export function Curriculum({ data, colors }) {
+export function CoverLetter({ data, colors, cvData }) {
 
   const { day, month, year } = generateData();
 
@@ -49,26 +54,6 @@ const coverLetterStyles = StyleSheet.create({
     paddingRight: `${padding}`,
     paddingLeft: `${padding}`,
   },
-
-  //---- Start styles rules for the name and position ----//
-  details: {
-    width: "auto",
-    height: 50,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-
-  heading: {
-    fontSize: 25,
-    textTransform: "uppercase",
-    marginBottom: 2,
-  },
-  subheading: {
-    fontSize: 14,
-  },
-  //---- End styles rules for the name and position ----//
 
   //container for the contact informations
   contact: {
@@ -176,10 +161,8 @@ const coverLetterStyles = StyleSheet.create({
       <Page>
         {/* Cover Letter Head */}
         <View style={coverLetterStyles.head}>
-          <View style={coverLetterStyles.details}>
-            <Text style={coverLetterStyles.heading}>{name}</Text>
-            <Text style={coverLetterStyles.subheading}>{position}</Text>
-          </View>
+          <UserDetails name={name} position={position}/>
+
           <View style={coverLetterStyles.contact}>
             <View style={coverLetterStyles.contactItem}>
               <Image style={coverLetterStyles.icons} src={icons.address} />
@@ -218,7 +201,7 @@ const coverLetterStyles = StyleSheet.create({
             <Text style={{marginBottom: 10}}>{`${data.greetings} ${data.recruiterName}`}</Text>
             {/* generate paragraphs based on user input */}
             {data.contentCoverLetter.map(({ id, text }) => (
-              <Text key={id} style={{marginBottom: 3}}>{text}</Text>
+              <Text key={id} style={{marginBottom: 5}}>{text}</Text>
             ))}
             <Text style={{marginTop: 10}}>{data.regards}</Text>
             <Text>{data.name}</Text>
@@ -249,11 +232,7 @@ const coverLetterStyles = StyleSheet.create({
       </Page>
 
       {/* Curriculum Vitae */}
-      <Page size="A4">
-        <View>
-          <Text>{data.address}</Text>
-        </View>
-      </Page>
+      <Curriculum colors={colors}/>
     </Document>
   );
 }
