@@ -1,26 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Application from "./Data";
-import { PDFViewer } from '@react-pdf/renderer';
+import { Font } from "@react-pdf/renderer";
 
-import "./index.css";
+//import fonts
+Font.register({ family: 'Lato', fonts: [
+  { src: './fonts/Lato/Lato-Regular.ttf' }, // font-style: normal, font-weight: normal
+  { src: './fonts/Lato/Lato-Bold.ttf', fontStyle: 'bold'},
+ ]},
+ );
 
-function App() {
-  const handleClick = () => {
-    return (
-    <PDFViewer>
-      <Application />
-    </PDFViewer>
-    )
+ //import fonts
+Font.register({ family: 'Open Sans', fonts: [
+  { src: './fonts/Open_Sans/OpenSans-Regular.ttf' }, // font-style: normal, font-weight: normal
+  { src: './fonts/Open_Sans/OpenSans-Bold.ttf', fontStyle: 'bold'},
+ ]});
 
-  }
+const App = () => {
   return (
     <div className="App">
-      <button onClick={()=> handleClick()}>View Online</button>
       <Application />
     </div>
   );
-}
+};
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);

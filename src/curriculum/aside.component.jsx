@@ -6,7 +6,7 @@ const Aside = ({ primaryColor }) => {
     aside: {
       backgroundColor: `${primaryColor}`,
       height: "795",
-      width: "210",
+      width: "200",
     },
   });
 

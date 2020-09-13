@@ -1,12 +1,15 @@
 import React from "react";
-import { icons } from './constants';
+import { icons } from "./constants";
 
-import UserDetails from './UserDetails';
+//helpers
+import generateData from "./helpers/date";
 
-import generateData from './helpers/date';
+//coverLetter components
+import UserDetails from "./UserDetails";
 
-//Curriculum
-import Curriculum from './curriculum/curriculum.component'
+//Curriculum components
+import Curriculum from "./curriculum/curriculum.component";
+
 
 import {
   Page,
@@ -15,140 +18,150 @@ import {
   Document,
   StyleSheet,
   Image,
-  Link,
+  Link
 } from "@react-pdf/renderer";
 
 
 export function CoverLetter({ data, colors, cvData }) {
-
   const { day, month, year } = generateData();
 
-//design variables
+  //design variables
   const { primaryColor, secondaryColor, textColor } = colors;
-  
-//data variables
-  const {name, position, street, city, postCode, houseNumber, phone, subject, email,  } = data;
-  
-const padding = 30;
-const iconsWidth = 22;
-const iconsheight = 22;
 
-//Create a red border in all the elements
-const debug = false;
+  //data variables
+  const {
+    name,
+    position,
+    street,
+    city,
+    postCode,
+    houseNumber,
+    phone,
+    subject,
+    email,
+  } = data;
 
-const debugProps = debug
-  ? { borderWidth: 1, borderColor: "red", borderStyle: "solid" }
-  : "";
+  const padding = 30;
+  const iconsWidth = 22;
+  const iconsheight = 22;
 
-const coverLetterStyles = StyleSheet.create({
-  //head of the coverletter
-  head: {
-    color: `${secondaryColor}`,
-    width: 600,
-    height: 160,
-    backgroundColor: `${primaryColor}`,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingRight: `${padding}`,
-    paddingLeft: `${padding}`,
-  },
+  //Create a red border in all the elements
+  const debug = false;
 
-  //container for the contact informations
-  contact: {
-    height: 105,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
-    ...debugProps,
-  },
+  const debugProps = debug
+    ? { borderWidth: 1, borderColor: "red", borderStyle: "solid" }
+    : "";
 
-  contactItem: {
-    fontSize: 11,
-    color: "#fff",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    width: "auto",
-    ...debugProps,
-  },
+  const coverLetterStyles = StyleSheet.create({
+    //head of the coverletter
+    head: {
+      color: `${secondaryColor}`,
+      width: 600,
+      height: 160,
+      backgroundColor: `${primaryColor}`,
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      paddingRight: `${padding}`,
+      paddingLeft: `${padding}`,
+    },
 
-  //body of the coverletter
-  body: {
-    color: `${textColor}`,
-    width: 600,
-    minHeight: "636.8,",
-    height: "auto",
-    display: "flex",
-    paddingRight: `${padding}`,
-    paddingLeft: `${padding}`,
-    
-  },
+    //container for the contact informations
+    contact: {
+      height: 105,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-around",
+      ...debugProps,
+    },
 
-  bodyHead: {
-    height: 100,
-    display: "flex",
-    flexDirection: "row",
-    lineHeight: 1.4,
-    ...debugProps,
-  },
+    contactItem: {
+      fontSize: 11,
+      color: "#fff",
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      width: "auto",
+      ...debugProps,
+    },
 
-  bodyHeadCompany: {
-    alignSelf: "flex-end",
-    width: "auto",
-    height: "70%",
-    fontSize: 11,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-end",
-    ...debugProps,
-  },
+    //body of the coverletter
+    body: {
+      color: `${textColor}`,
+      width: 600,
+      minHeight: "636.8,",
+      height: "auto",
+      display: "flex",
+      paddingRight: `${padding}`,
+      paddingLeft: `${padding}`,
+    },
 
-  bodyHeadData: {
-    width: "auto",
-    flexGrow: 1,
-    alignSelf: "flex-end",
-    alignItems: "flex-end",
-    fontSize: 11,
-    ...debugProps,
-  },
+    bodyHead: {
+      height: 100,
+      display: "flex",
+      flexDirection: "row",
+      lineHeight: 1.4,
+      ...debugProps,
+    },
 
-  bodySubject: {
-    height: 100,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    color: `${primaryColor}`,
-    fontStyle: "bold",
-  },
+    bodyHeadCompany: {
+      alignSelf: "flex-end",
+      width: "auto",
+      height: "70%",
+      fontSize: 11,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "flex-end",
+      ...debugProps,
+    },
 
-  bodyText: {
-    height: "auto",
-    lineHeight: 1.4,
-    fontSize: 11,
-    ...debugProps,
-  },
+    bodyHeadData: {
+      width: "auto",
+      flexGrow: 1,
+      alignSelf: "flex-end",
+      alignItems: "flex-end",
+      fontSize: 11,
+      ...debugProps,
+    },
 
-  //footer of the coverletter
-  footer: {
-    color: `${secondaryColor}`,
-    width: 600,
-    height: 45,
-    backgroundColor: `${primaryColor}`,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
-  },
+    bodySubject: {
+      height: 100,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      color: `${primaryColor}`,
+      fontFamily: "Lato",
+      fontStyle: "bold",
+    },
 
-  icons: {
-    width: `${iconsWidth}`,
-    height: `${iconsheight}`,
-    marginRight: 30,
-  },
-});
-  
+    bodyText: {
+      height: "auto",
+      lineHeight: 1.4,
+      fontSize: 11,
+      fontFamily: "Lato",
+      ...debugProps,
+    },
+
+    //footer of the coverletter
+    footer: {
+      color: `${secondaryColor}`,
+      width: 600,
+      height: 45,
+      backgroundColor: `${primaryColor}`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexDirection: "row",
+    },
+
+    icons: {
+      width: `${iconsWidth}`,
+      height: `${iconsheight}`,
+      marginRight: 30,
+    },
+  });
+
   return (
     /**
      * This component represents the PDF document itself.
@@ -161,7 +174,7 @@ const coverLetterStyles = StyleSheet.create({
       <Page>
         {/* Cover Letter Head */}
         <View style={coverLetterStyles.head}>
-          <UserDetails name={name} position={position}/>
+          <UserDetails name={name} position={position} />
 
           <View style={coverLetterStyles.contact}>
             <View style={coverLetterStyles.contactItem}>
@@ -198,12 +211,16 @@ const coverLetterStyles = StyleSheet.create({
           </View>
 
           <View style={coverLetterStyles.bodyText}>
-            <Text style={{marginBottom: 10}}>{`${data.greetings} ${data.recruiterName}`}</Text>
+            <Text
+              style={{ marginBottom: 10 }}
+            >{`${data.greetings} ${data.recruiterName}`}</Text>
             {/* generate paragraphs based on user input */}
             {data.contentCoverLetter.map(({ id, text }) => (
-              <Text key={id} style={{marginBottom: 5}}>{text}</Text>
+              <Text key={id} style={{ marginBottom: 5 }}>
+                {text}
+              </Text>
             ))}
-            <Text style={{marginTop: 10}}>{data.regards}</Text>
+            <Text style={{ marginTop: 10 }}>{data.regards}</Text>
             <Text>{data.name}</Text>
           </View>
         </View>
@@ -211,28 +228,19 @@ const coverLetterStyles = StyleSheet.create({
         {/* Cover Letter Footer */}
         <View style={coverLetterStyles.footer}>
           <Link src={data.github}>
-            <Image
-              style={coverLetterStyles.icons}
-              src="/images/github.png"
-            />
+            <Image style={coverLetterStyles.icons} src="/images/github.png" />
           </Link>
           <Link src={data.linkedin}>
-            <Image
-              style={coverLetterStyles.icons}
-              src="/images/linkedin.png"
-            />
+            <Image style={coverLetterStyles.icons} src="/images/linkedin.png" />
           </Link>
           <Link src={data.website}>
-            <Image
-              style={coverLetterStyles.icons}
-              src="/images/www.png"
-            />
+            <Image style={coverLetterStyles.icons} src="/images/www.png" />
           </Link>
         </View>
       </Page>
 
       {/* Curriculum Vitae */}
-      <Curriculum colors={colors}/>
+      <Curriculum colors={colors} />
     </Document>
   );
 }
