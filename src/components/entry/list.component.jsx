@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, View } from "@react-pdf/renderer";
-import List, { Item } from "./entry/item.component";
+import List, { Item } from "./item.component";
 
 import sharedStyles from "../../shared/global.styles";
 
@@ -25,14 +25,12 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginTop: "9",
     marginBottom: 2,
-
   },
   date: {
     textTransform: "uppercase",
     fontSize: 8,
     marginBottom: 10,
   },
-  
 });
 
 const ExperienceEntry = ({ company, details, position, date, city }) => {
@@ -44,7 +42,7 @@ const ExperienceEntry = ({ company, details, position, date, city }) => {
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.date}>{date}</Text>
       </View>
-      <List style={{marginBottom: 15}}>
+      <List style={{ marginBottom: 15 }}>
         {details.map((detail, i) => (
           <Item key={i} style={styles.detailContainer}>
             {detail}
@@ -55,9 +53,7 @@ const ExperienceEntry = ({ company, details, position, date, city }) => {
   );
 };
 
-
-
-const Career = ({data, title}) => {
+const Career = ({ data, title }) => {
   return (
     <View style={styles.work}>
       <Text style={sectionTitle}>{title}</Text>

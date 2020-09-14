@@ -6,9 +6,9 @@ const sharedStyles = () => {
     sectionTitle: {
       fontSize: 13,
       color: `${colors.primaryColor}`,
-      fontStyle: "bold",
       textTransform: "uppercase",
-      borderColor: "teal",
+      fontFamily: "Open Sans",
+      fontStyle: "bold",
     },
     paragraph: {
       color: `${colors.textColor}`,

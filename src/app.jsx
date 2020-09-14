@@ -5,11 +5,11 @@ import { icons } from "./constants";
 import generateData from "./helpers/date";
 
 //coverLetter components
-import UserDetails from "./UserDetails";
+import UserDetails from "./coverletter/UserDetails";
+import UserContact from './coverletter/user.contact'
 
 //Curriculum components
-import Curriculum from "./curriculum/curriculum.component";
-
+import Curriculum from "./curriculum/curriculum.wrapper";
 
 import {
   Page,
@@ -32,13 +32,6 @@ export function CoverLetter({ data, colors, cvData }) {
   const {
     name,
     position,
-    street,
-    city,
-    postCode,
-    houseNumber,
-    phone,
-    subject,
-    email,
   } = data;
 
   const padding = 30;
@@ -67,24 +60,7 @@ export function CoverLetter({ data, colors, cvData }) {
       paddingLeft: `${padding}`,
     },
 
-    //container for the contact informations
-    contact: {
-      height: 105,
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-around",
-      ...debugProps,
-    },
 
-    contactItem: {
-      fontSize: 11,
-      color: "#fff",
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      width: "auto",
-      ...debugProps,
-    },
 
     //body of the coverletter
     body: {
@@ -175,21 +151,7 @@ export function CoverLetter({ data, colors, cvData }) {
         {/* Cover Letter Head */}
         <View style={coverLetterStyles.head}>
           <UserDetails name={name} position={position} />
-
-          <View style={coverLetterStyles.contact}>
-            <View style={coverLetterStyles.contactItem}>
-              <Image style={coverLetterStyles.icons} src={icons.address} />
-              <Text>{`${street} ${houseNumber}, ${postCode} ${city}`}</Text>
-            </View>
-            <View style={coverLetterStyles.contactItem}>
-              <Image style={coverLetterStyles.icons} src={icons.phone} />
-              <Text>{phone}</Text>
-            </View>
-            <View style={coverLetterStyles.contactItem}>
-              <Image style={coverLetterStyles.icons} src="/images/letter.png" />
-              <Text>{email}</Text>
-            </View>
-          </View>
+          <UserContact data={data}/>
         </View>
 
         {/* Cover Letter Body */}

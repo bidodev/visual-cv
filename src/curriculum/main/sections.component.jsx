@@ -6,8 +6,8 @@ import { StyleSheet, View } from "@react-pdf/renderer";
  * Sections inside the main Curriculum -> Main
  */
 
-import Career from "./sections/career.component";
-import Work from "./sections/work.component";
+import Career from "./career.component";
+import Work from "../../components/entry/list.component";
 
 const Main = () => {
   //const sectionsOrders = [];
@@ -73,15 +73,15 @@ const Main = () => {
       city: "Berlin",
       },
       {
-        company: "DCI Digital Career Institute GmbH, Berlin",
-        date: "Set 2019 - Jan 2021",
+        company: "UFFS - Universidade Federal da Fronteira Sul",
+        date: "Feb 2010 - Nov 2012",
         details: [
           "Accomplishing a one-year-full-time training with technologies from MERN stack",
           "Completing multiple projects to practice the learned skills",
-          "Taking C1 German course as part of the training.",
+
         ],
-        position: "Certificate, Full Stack Web Development Course",
-        city: "Berlin",
+        position: "Bachelor's degree, Computer Science",
+        city: "Chapeco",
       },
   ];
 
