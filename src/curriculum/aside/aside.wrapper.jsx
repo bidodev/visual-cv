@@ -1,7 +1,13 @@
 import React from "react";
-import { Text, StyleSheet, View, Image } from "@react-pdf/renderer";
+import { StyleSheet, View } from "@react-pdf/renderer";
 
-import { icons } from "../../constants";
+//import sections
+import Avatar from './avatar.component';
+import Contact from './contact.component';
+import TechnicalSkills from './technical.skills.component';
+import SoftSkills from './soft.skills.component';
+import Languages from "./languages.component";
+import Social from "./social.component";
 
 const Aside = ({ primaryColor }) => {
   const styles = StyleSheet.create({
@@ -9,52 +15,20 @@ const Aside = ({ primaryColor }) => {
       backgroundColor: `${primaryColor}`,
       height: "795",
       width: "200",
-    },
-
-    avatarWrapper: {
-      width: 50,
-      height: 50,
-    },
-    avatar: {
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-    },
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+    }
   });
 
   return (
     <View style={styles.aside}>
-      <View style={styles.avatarWrapper}>
-        <Image style={styles.avatar} src={icons.address} />
-      </View>
-
-      {/* COntact Me */}
-      <View>
-        <Text style={styles.asideSectionTitle}>Contact Me</Text>
-        <Text>+49 179 103171</Text>
-        <Text>claudinei.bido@gmail.com</Text>
-        <Text>Berlin, Germany</Text>
-      </View>
-
-      {/* Technical Skills */}
-      <View>
-        <Text style={styles.asideSectionTitle}>Technical Skills</Text>
-      </View>
-
-      {/* Other Skills */}
-      <View>
-        <Text style={styles.asideSectionTitle}>Other Skills</Text>
-      </View>
-
-      {/* Language Skills */}
-      <View>
-        <Text style={styles.asideSectionTitle}>Languages</Text>
-      </View>
-
-      {/* Social */}
-      <View>
-        <Text style={styles.asideSectionTitle}>Social</Text>
-      </View>
+      <Avatar />
+      <Contact />
+      <TechnicalSkills />
+      <SoftSkills />
+      <Languages />
+      <Social />
     </View>
   );
 };

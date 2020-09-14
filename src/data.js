@@ -44,7 +44,7 @@ const USER_DATA = {
 
   //Company Details
   recruiterName: "Oliver Kuhn",
-  companyName: "Tillhub GmbH",
+  companyName: "Tillhub",
   companyAddress: "Genthiner Str. 34",
   companyCity: "Berlin",
   companyPostCode: "10785",
