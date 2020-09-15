@@ -4,7 +4,7 @@ import { Font, PDFDownloadLink } from "@react-pdf/renderer";
 import { CoverLetter } from "./app";
 
 //import data
-import { EXPERIENCE, COLORS, USER_DATA } from "./data.js";
+import { EXPERIENCE, COLORS, USER_DATA, COVER_LETTER_CONTENT } from "./data.js";
 
 //register fonts
 import { Lato, OpenSans } from "./shared/fonts";
@@ -16,6 +16,7 @@ const App = () => {
   const [experienceData, setExperienceData] = useState(EXPERIENCE);
   const [colors, setColors] = useState(COLORS);
   const [cvDetails, setDetails] = useState(USER_DATA);
+  const [coverLetterData, setCoverLetterData] = useState(COVER_LETTER_CONTENT);
   
   return (
     <div className="container">
@@ -26,6 +27,7 @@ const App = () => {
             data={cvDetails}
             colors={colors}
             cvData={experienceData}
+            coverLetterData={coverLetterData}
           />
         }
         // fileName should be optmi

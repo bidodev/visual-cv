@@ -22,5 +22,6 @@ export const sharedStyles = StyleSheet.create({
     textTransform: "uppercase",
     fontFamily: "Open Sans",
     fontStyle: "bold",
+    marginBottom: 16,
   },
 });

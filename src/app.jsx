@@ -22,7 +22,7 @@ import {
 } from "@react-pdf/renderer";
 
 
-export function CoverLetter({ data, colors, cvData }) {
+export function CoverLetter({ data, colors, cvData, coverLetterData }) {
   const { day, month, year } = generateData();
 
   //design variables
@@ -177,7 +177,7 @@ export function CoverLetter({ data, colors, cvData }) {
               style={{ marginBottom: 10 }}
             >{`${data.greetings} ${data.recruiterName}`}</Text>
             {/* generate paragraphs based on user input */}
-            {data.contentCoverLetter.map(({ id, text }) => (
+            {coverLetterData.map(({ id, text }) => (
               <Text key={id} style={{ marginBottom: 5 }}>
                 {text}
               </Text>

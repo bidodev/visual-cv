@@ -5,12 +5,12 @@ import { icons } from "../../constants";
 import { sharedStyles } from "../../shared/global.styles";
 
 //call the function to generate the sharedStyles.
-const { asideSectionTitle } = sharedStyles
+const { asideSectionTitle } = sharedStyles;
 
 const styles = StyleSheet.create({
   iconsWrapper: {
     display: "flex",
-        flexDirection: "row",
+    flexDirection: "row",
     width: "100%",
     justifyContent: "space-around",
     alignItems: "center",

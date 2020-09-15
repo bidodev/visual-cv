@@ -14,10 +14,11 @@ const Aside = ({ primaryColor }) => {
     aside: {
       backgroundColor: `${primaryColor}`,
       height: "795",
-      width: "200",
+      width: "210",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
+      paddingLeft: 20,
     }
   });
 

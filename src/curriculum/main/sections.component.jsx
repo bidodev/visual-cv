@@ -13,9 +13,9 @@ const Main = () => {
   //const sectionsOrders = [];
   const styles = StyleSheet.create({
     main: {
-      paddingRight: 30,
+      paddingRight: 20,
       paddingLeft: 15,
-      width: "400",
+      width: "390",
       height: "795",
       backgroundColor: "#fff",
       display: "flex",
