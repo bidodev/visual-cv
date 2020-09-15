@@ -7,9 +7,10 @@ import { CoverLetter } from "./app";
 import { EXPERIENCE, COLORS, USER_DATA, COVER_LETTER_CONTENT } from "./data.js";
 
 //register fonts
-import { Lato, OpenSans } from "./shared/fonts";
-Font.register(Lato);
-Font.register(OpenSans);
+import * as Fonts from "./shared/fonts";
+
+//register all the fonts before user..
+Object.values(Fonts).map((font) => Font.register(font))
 
 const App = () => {
   //pieces of state

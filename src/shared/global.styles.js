@@ -23,5 +23,6 @@ export const sharedStyles = StyleSheet.create({
     fontFamily: "Open Sans",
     fontStyle: "bold",
     marginBottom: 16,
+    marginTop: 20,
   },
 });

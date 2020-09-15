@@ -9,7 +9,9 @@ const { paragraph, sectionTitle } = sharedStyles;
 const styles = StyleSheet.create({
   career: {
     marginTop: 20,
-    height: "auto",
+    height: 100,
+    display: "flex",
+    justifyContent: "center",
     //fontFamily: "Lato Italic",
   },
 });

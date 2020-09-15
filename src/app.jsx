@@ -115,7 +115,7 @@ export function CoverLetter({ data, colors, cvData, coverLetterData }) {
       height: "auto",
       lineHeight: 1.4,
       fontSize: 11,
-      fontFamily: "Lato",
+      fontFamily: "Roboto",
       ...debugProps,
     },
 

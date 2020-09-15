@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   itemContent: {
     flex: 1,
     fontSize: 10,
+    fontFamily: "Lato",
     color: '#666'
   },
 });

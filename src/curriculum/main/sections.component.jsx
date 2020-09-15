@@ -77,8 +77,6 @@ const Main = () => {
         date: "Feb 2010 - Nov 2012",
         details: [
           "Accomplishing a one-year-full-time training with technologies from MERN stack",
-          "Completing multiple projects to practice the learned skills",
-
         ],
         position: "Bachelor's degree, Computer Science",
         city: "Chapeco",

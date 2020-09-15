@@ -40,7 +40,7 @@ const EXPERIENCE = [
 ];
 
 const COLORS = {
-  primaryColor: "#232E3D",
+  primaryColor: "#2f3d52",
   secondaryColor: "#fff",
   textColor: "#666",
 };
