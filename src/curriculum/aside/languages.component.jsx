@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, View, Image } from "@react-pdf/renderer";
-import { sharedStyles } from "../../shared/global.styles";
+import { sharedStyles } from "../../helpers/shared/global.styles";
 
 //call the function to generate the sharedStyles.
 const { asideSectionTitle } = sharedStyles;
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 const LANGUAGES = [
   { name: "Portuguese", level: "Native" },
   { name: "English", level: "Full professional proficiency" },
-  { name: "German", level: "Professional working proficiency" },
+  { name: "German", level: "Full professional proficiency" },
   { name: "Italian", level: "Professional working proficiency" },
 ];
 

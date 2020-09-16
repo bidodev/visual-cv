@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, View, Image } from "@react-pdf/renderer";
-import { sharedStyles } from "../../shared/global.styles";
+import { sharedStyles } from "../../helpers/shared/global.styles";
 
 //call the function to generate the sharedStyles.
 const { asideSectionTitle } = sharedStyles;

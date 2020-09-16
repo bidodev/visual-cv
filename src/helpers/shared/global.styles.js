@@ -12,9 +12,9 @@ export const sharedStyles = StyleSheet.create({
   paragraph: {
     color: `${colors.textColor}`,
     lineHeight: 1.4,
-    fontSize: 10,
-    borderColor: "brown",
+    fontSize: 11,
     marginTop: 17,
+    fontFamily: "Roboto"
   },
   asideSectionTitle: {
     color: `${colors.secondaryColor}`,

@@ -23,7 +23,7 @@ const Aside = ({ primaryColor }) => {
       <Avatar />
       <View
         style={{
-          paddingLeft: 20,
+          paddingHorizontal: 15,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",

@@ -1,36 +1,20 @@
-const generateData = () => {
-    const weekDays = [
-      'Sunday',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-    ];
+/**
+ * Function to generate current data.
+ * @param: language for the output
+ * @return {day, weekday, month, year}
+ */
 
-    const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    const currentDate = new Date();
-    const data = {
-      day: currentDate.getDate(),
-      weekday: weekDays[currentDate.getDay()],
-      month: monthNames[currentDate.getMonth()],
-      year: currentDate.getFullYear(),
-    };
-    return data;
+import { data } from "./translations.js";
+
+const generateDate = (language) => {
+  const currentDate = new Date();
+
+  return {
+    day: currentDate.getDate(),
+    weekday: data[language].weekDays[currentDate.getDay()],
+    month: data[language].monthNames[currentDate.getMonth()],
+    year: currentDate.getFullYear(),
+  };
 };
-  
-export default generateData;
+
+export default generateDate;

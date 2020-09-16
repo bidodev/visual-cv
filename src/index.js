@@ -7,7 +7,7 @@ import { CoverLetter } from "./app";
 import { EXPERIENCE, COLORS, USER_DATA, COVER_LETTER_CONTENT } from "./data.js";
 
 //register fonts
-import * as Fonts from "./shared/fonts";
+import * as Fonts from "./helpers/shared/fonts";
 
 //register all the fonts before user..
 Object.values(Fonts).map((font) => Font.register(font))

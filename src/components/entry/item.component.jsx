@@ -4,7 +4,7 @@ import { Text, StyleSheet, View } from "@react-pdf/renderer";
 const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
-    marginBottom: 5,
+    lineHeight: 1.6,
   },
   bulletPoint: {
     width: 10,
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   itemContent: {
     flex: 1,
     fontSize: 10,
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     color: '#666'
   },
 });

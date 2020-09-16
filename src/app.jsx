@@ -23,7 +23,11 @@ import {
 
 
 export function CoverLetter({ data, colors, cvData, coverLetterData }) {
-  const { day, month, year } = generateData();
+  
+  //default by now.
+  const language = "english";
+
+  const { day, month, year } = generateData(language);
 
   //design variables
   const { primaryColor, secondaryColor, textColor } = colors;
