@@ -7,7 +7,7 @@ import UserDetails from '../../coverletter/UserDetails'
 const styles = StyleSheet.create({
   avatarWrapper: {
     marginTop: 20,
-    height: 100,
+    height: 80,
     backgroundColor: '#232e3d',
     display: "flex",
     alignItems: "center",

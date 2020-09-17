@@ -3,7 +3,7 @@ import colors from "./colors.js";
 
 export const sharedStyles = StyleSheet.create({
   sectionTitle: {
-    fontSize: 13,
+    fontSize: 16,
     color: `${colors.primaryColor}`,
     textTransform: "uppercase",
     fontFamily: "Open Sans",
@@ -14,7 +14,7 @@ export const sharedStyles = StyleSheet.create({
     lineHeight: 1.4,
     fontSize: 11,
     marginTop: 17,
-    fontFamily: "Roboto"
+    fontFamily: "Poppins"
   },
   asideSectionTitle: {
     color: `${colors.secondaryColor}`,
@@ -22,7 +22,7 @@ export const sharedStyles = StyleSheet.create({
     textTransform: "uppercase",
     fontFamily: "Open Sans",
     fontStyle: "bold",
-    marginBottom: 16,
+    marginBottom: 10,
     marginTop: 20,
   },
 });

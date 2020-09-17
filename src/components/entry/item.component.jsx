@@ -4,17 +4,19 @@ import { Text, StyleSheet, View } from "@react-pdf/renderer";
 const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
-    lineHeight: 1.6,
+    lineHeight: 1.4,
+    marginBottom: 2,
   },
   bulletPoint: {
-    width: 10,
-    fontSize: 10,
+    width: 12,
+    fontSize: 12,
   },
   itemContent: {
     flex: 1,
-    fontSize: 10,
+    fontSize: 9.5,
     fontFamily: "Roboto",
-    color: '#666'
+    color: '#333',
+    letterSpacing: 0.2,
   },
 });
 

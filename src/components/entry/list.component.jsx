@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet, View } from "@react-pdf/renderer";
 import List, { Item } from "./item.component";
 
-import {sharedStyles} from "../../helpers/shared/global.styles";
+import { sharedStyles } from "../../helpers/shared/global.styles";
 
 //call the function to generate the sharedStyles.
 const { paragraph, sectionTitle } = sharedStyles;
@@ -15,21 +15,26 @@ const styles = StyleSheet.create({
   wrapper: {},
   headerContainer: {},
   position: {
-    fontSize: 12,
-    marginTop: 17,
+    fontSize: 10,
+    marginTop: 10,
     fontFamily: "Open Sans",
     fontStyle: "bold",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
   },
   title: {
     textTransform: "uppercase",
-    fontSize: 10,
-    marginTop: "9",
-    marginBottom: 2,
+    fontSize: 8.5,
+    fontFamily: "Poppins",
+    marginTop: "2",
+    marginBottom: 10,
+
   },
   date: {
     textTransform: "uppercase",
-    fontSize: 8,
-    marginBottom: 10,
+    fontSize: 7,
   },
 });
 
@@ -38,9 +43,11 @@ const ExperienceEntry = ({ company, details, position, date, city }) => {
   return (
     <View style={styles.wrapper}>
       <View style={styles.headerContainer}>
-        <Text style={styles.position}>{position}</Text>
+        <View style={styles.position}>
+          <Text>{position}</Text>
+          <Text style={styles.date}>{date}</Text>
+        </View>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.date}>{date}</Text>
       </View>
       <List style={{ marginBottom: 15 }}>
         {details.map((detail, i) => (

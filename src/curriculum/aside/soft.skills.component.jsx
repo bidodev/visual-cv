@@ -14,8 +14,6 @@ const styles = StyleSheet.create({
 });
 
 const SKILLS = [
-  { name: "Team player, Communicative"},
-  { name: "Problem Solver, Hands on, Initiative" },
   { name: "Adept, Curious, Receptive"},
   { name: "Highly organized" },
   { name: "Project Management" },

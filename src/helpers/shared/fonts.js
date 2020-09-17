@@ -5,24 +5,47 @@
 export const Lato = {
   family: "Lato",
   fonts: [
-    { src: "./fonts/Lato/Lato-Regular.ttf" }, // font-style: normal, font-weight: normal
-    { src: "./fonts/Lato/Lato-Bold.ttf", fontStyle: "bold" },
+    { src: "./fonts/lato/Lato-Regular.ttf" }, // font-style: normal, font-weight: normal
+    { src: "./fonts/lato/Lato-Bold.ttf", fontStyle: "bold" },
   ],
 };
 
 export const OpenSans = {
   family: "Open Sans",
   fonts: [
-    { src: "./fonts/Open_Sans/OpenSans-Regular.ttf" }, // font-style: normal, font-weight: normal
-    { src: "./fonts/Open_Sans/OpenSans-Bold.ttf", fontStyle: "bold" },
+    { src: "./fonts/open_sans/OpenSans-Regular.ttf" }, // font-style: normal, font-weight: normal
+    { src: "./fonts/open_sans/OpenSans-Bold.ttf", fontStyle: "bold" },
   ],
 };
 
 export const Roboto = {
   family: "Roboto",
   fonts: [
-    { src: "./fonts/Roboto/Roboto-Regular.ttf" }, // font-style: normal, font-weight: normal
-    { src: "./fonts/Roboto/Roboto-Bold.ttf", fontStyle: "bold" },
+    { src: "./fonts/roboto/Roboto-Regular.ttf" }, // font-style: normal, font-weight: normal
+    { src: "./fonts/roboto/Roboto-Bold.ttf", fontStyle: "bold" },
+  ],
+};
+
+export const HKGrotesk = {
+  family: "HK Grotesk",
+  fonts: [
+    { src: "./fonts/hk-grotesk/HKGrotesk-Regular.otf" }, // font-style: normal, font-weight: normal
+    { src: "./fonts/hk-grotesk/HKGrotesk-Bold.otf", fontStyle: "bold" },
+  ],
+};
+
+export const Poppins = {
+  family: "Poppins",
+  fonts: [
+    { src: "./fonts/poppins/Poppins-Regular.ttf" }, // font-style: normal, font-weight: normal
+    { src: "./fonts/poppins/Poppins-Bold.ttf", fontStyle: "bold" },
+  ],
+};
+
+export const Arial = {
+  family: "Arial",
+  fonts: [
+    { src: "./fonts/arial.ttf" }, // font-style: normal, font-weight: normal
   ],
 };
 

@@ -6,7 +6,7 @@ import generateData from "./helpers/date";
 
 //coverLetter components
 import UserDetails from "./coverletter/UserDetails";
-import UserContact from './coverletter/user.contact'
+import UserContact from "./coverletter/user.contact";
 
 //Curriculum components
 import Curriculum from "./curriculum/curriculum.wrapper";
@@ -18,12 +18,10 @@ import {
   Document,
   StyleSheet,
   Image,
-  Link
+  Link,
 } from "@react-pdf/renderer";
 
-
 export function CoverLetter({ data, colors, cvData, coverLetterData }) {
-  
   //default by now.
   const language = "english";
 
@@ -33,10 +31,7 @@ export function CoverLetter({ data, colors, cvData, coverLetterData }) {
   const { primaryColor, secondaryColor, textColor } = colors;
 
   //data variables
-  const {
-    name,
-    position,
-  } = data;
+  const { name, position } = data;
 
   const padding = 30;
   const iconsWidth = 22;
@@ -48,6 +43,8 @@ export function CoverLetter({ data, colors, cvData, coverLetterData }) {
   const debugProps = debug
     ? { borderWidth: 1, borderColor: "red", borderStyle: "solid" }
     : "";
+
+  const downloadCoverLetter = false;
 
   const coverLetterStyles = StyleSheet.create({
     //head of the coverletter
@@ -63,8 +60,6 @@ export function CoverLetter({ data, colors, cvData, coverLetterData }) {
       paddingRight: `${padding}`,
       paddingLeft: `${padding}`,
     },
-
-
 
     //body of the coverletter
     body: {
@@ -151,59 +146,65 @@ export function CoverLetter({ data, colors, cvData, coverLetterData }) {
     <Document>
       {/* Cover Letter */}
       {/* Default page size is A4 */}
-      <Page>
-        {/* Cover Letter Head */}
-        <View style={coverLetterStyles.head}>
-          <UserDetails name={name} position={position} />
-          <UserContact data={data}/>
-        </View>
 
-        {/* Cover Letter Body */}
-        <View style={coverLetterStyles.body}>
-          <View style={coverLetterStyles.bodyHead}>
-            <View style={coverLetterStyles.bodyHeadCompany}>
-              <Text>{data.recruiterName}</Text>
-              <Text>{data.companyName}</Text>
-              <Text>{data.companyAddress}</Text>
-              <Text>{`${data.companyPostCode} ${data.companyCity}`}</Text>
+      {downloadCoverLetter ? (
+        <Page>
+          {/* Cover Letter Head */}
+          <View style={coverLetterStyles.head}>
+            <UserDetails name={name} position={position} />
+            <UserContact data={data} />
+          </View>
+
+          {/* Cover Letter Body */}
+          <View style={coverLetterStyles.body}>
+            <View style={coverLetterStyles.bodyHead}>
+              <View style={coverLetterStyles.bodyHeadCompany}>
+                <Text>{data.recruiterName}</Text>
+                <Text>{data.companyName}</Text>
+                <Text>{data.companyAddress}</Text>
+                <Text>{`${data.companyPostCode} ${data.companyCity}`}</Text>
+              </View>
+              <View style={coverLetterStyles.bodyHeadData}>
+                <Text>{`${data.city}, ${day} ${month} ${year}`}</Text>
+              </View>
             </View>
-            <View style={coverLetterStyles.bodyHeadData}>
-              <Text>{`${data.city}, ${day} ${month} ${year}`}</Text>
+
+            <View style={coverLetterStyles.bodySubject}>
+              <Text>{`Subject: ${data.subject} ${data.companyName}`}</Text>
+            </View>
+
+            <View style={coverLetterStyles.bodyText}>
+              <Text
+                style={{ marginBottom: 10 }}
+              >{`${data.greetings} ${data.recruiterName}`}</Text>
+              {/* generate paragraphs based on user input */}
+              {coverLetterData.map(({ id, text }) => (
+                <Text key={id} style={{ marginBottom: 5 }}>
+                  {text}
+                </Text>
+              ))}
+              <Text style={{ marginTop: 10 }}>{data.regards}</Text>
+              <Text>{data.name}</Text>
             </View>
           </View>
 
-          <View style={coverLetterStyles.bodySubject}>
-            <Text>{`Subject: ${data.subject} ${data.companyName}`}</Text>
+          {/* Cover Letter Footer */}
+          <View style={coverLetterStyles.footer}>
+            <Link src={data.github}>
+              <Image style={coverLetterStyles.icons} src="/images/github.png" />
+            </Link>
+            <Link src={data.linkedin}>
+              <Image
+                style={coverLetterStyles.icons}
+                src="/images/linkedin.png"
+              />
+            </Link>
+            <Link src={data.website}>
+              <Image style={coverLetterStyles.icons} src="/images/www.png" />
+            </Link>
           </View>
-
-          <View style={coverLetterStyles.bodyText}>
-            <Text
-              style={{ marginBottom: 10 }}
-            >{`${data.greetings} ${data.recruiterName}`}</Text>
-            {/* generate paragraphs based on user input */}
-            {coverLetterData.map(({ id, text }) => (
-              <Text key={id} style={{ marginBottom: 5 }}>
-                {text}
-              </Text>
-            ))}
-            <Text style={{ marginTop: 10 }}>{data.regards}</Text>
-            <Text>{data.name}</Text>
-          </View>
-        </View>
-
-        {/* Cover Letter Footer */}
-        <View style={coverLetterStyles.footer}>
-          <Link src={data.github}>
-            <Image style={coverLetterStyles.icons} src="/images/github.png" />
-          </Link>
-          <Link src={data.linkedin}>
-            <Image style={coverLetterStyles.icons} src="/images/linkedin.png" />
-          </Link>
-          <Link src={data.website}>
-            <Image style={coverLetterStyles.icons} src="/images/www.png" />
-          </Link>
-        </View>
-      </Page>
+        </Page>
+      ) : null}
 
       {/* Curriculum Vitae */}
       <Curriculum colors={colors} />

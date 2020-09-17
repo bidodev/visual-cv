@@ -3,6 +3,7 @@ import { StyleSheet, View } from "@react-pdf/renderer";
 
 //import sections
 import Avatar from "./avatar.component";
+import Career from './career.component';
 import Contact from "./contact.component";
 import TechnicalSkills from "./technical.skills.component";
 import SoftSkills from "./soft.skills.component";
@@ -13,8 +14,9 @@ const Aside = ({ primaryColor }) => {
   const styles = StyleSheet.create({
     aside: {
       backgroundColor: `${primaryColor}`,
-      height: "795",
+      height: "830",
       width: "210",
+      color: '#fff',
     },
   });
 
@@ -29,10 +31,11 @@ const Aside = ({ primaryColor }) => {
           justifyContent: "space-between",
         }}
       >
-        <Contact />
+        <Career />
         <TechnicalSkills />
         <SoftSkills />
         <Languages />
+        <Contact />
         <Social />
       </View>
     </View>
