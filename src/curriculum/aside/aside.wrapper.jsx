@@ -25,10 +25,11 @@ const Aside = ({ primaryColor }) => {
       <Avatar />
       <View
         style={{
-          paddingHorizontal: 15,
+          paddingHorizontal: 10,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          fontFamily: "Roboto"
         }}
       >
         <Career />

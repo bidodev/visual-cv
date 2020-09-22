@@ -21,7 +21,7 @@ const SKILLS = [
 
 export const SoftSkills = () => (
   <View>
-    <Text style={asideSectionTitle}>Other Skills</Text>
+    <Text style={asideSectionTitle}>Others</Text>
     {SKILLS.map((skill) => (
       <Text style={styles.langItem}>{skill.name}</Text>
     ))}

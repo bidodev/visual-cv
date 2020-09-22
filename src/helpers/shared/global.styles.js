@@ -22,7 +22,7 @@ export const sharedStyles = StyleSheet.create({
     textTransform: "uppercase",
     fontFamily: "Open Sans",
     fontStyle: "bold",
-    marginBottom: 10,
-    marginTop: 20,
+    marginBottom: 7,
+    marginTop: 10,
   },
 });

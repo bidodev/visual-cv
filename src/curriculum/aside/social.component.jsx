@@ -25,9 +25,9 @@ export const Social = () => (
   <View>
     <Text style={asideSectionTitle}>Social</Text>
     <View style={styles.iconsWrapper}>
-      <Image style={styles.icons} src={icons.address} />
-      <Image style={styles.icons} src={icons.address} />
-      <Image style={styles.icons} src={icons.address} />
+      <Image style={styles.icons} src={icons.github} />
+      <Image style={styles.icons} src={icons.linkedin} />
+      <Image style={styles.icons} src={icons.website} />
     </View>
   </View>
 );

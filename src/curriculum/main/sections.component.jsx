@@ -27,8 +27,9 @@ const Main = () => {
       date: "Jan 2020 - Present",
       details: [
         "Tutored more than 15 students using React, Node.js, JavaScript, CSS, SASS, and other technologies from MERN Stack, such as express and MongoDB",
-        "Taught students best code structuring and coding practices using design partners such as MVC and FLUX",
+        "Taught students best code structuring and coding practices using design patterns such as MVC and FLUX",
         "Instructed how to find and solve problems in the code using debuggers and tools like Google and React Developer Tools",
+        "Planned lessons and prepared learning modules for tutoring sessions according to students' needs and goals"
       ],
       position: "Web Development Tutor",
       city: "Berlin",
@@ -37,9 +38,9 @@ const Main = () => {
         company: "Arvato - Bertelsmann",
         date: "Sep 2017 - Oct 2019",
         details: [
-          "Investigated and resolved customer queries, resolving 98% successfully",
-          "Reached the defined targets, reviewed twice the requested amount of tickets",
-          "Achieved the highest performance in the company as part of a team, ending the backlog with an accuracy of 99%",
+          "Investigated a daily basis of 200 customer queries, solving 98% successfully",
+          "Achieved the highest performance in the company as part of a team of 80, reviewing twice the requested amount of tickets, with an accuracy of 99%",
+          "Frequently attended educational training to improve knowledge and performance levels. Concluded more than 20 courses in the E-learning platform"
         ],
         position: "Social Media Moderator",
         city: "Berlin",
@@ -50,18 +51,18 @@ const Main = () => {
         details: [
           "Monitored more than 1000 servers among a team of 10, efficiently delivered a stable and reliable product, assuring our customers a fast response in case of software/hardware failures",
           "Automated the daily routines of the Datacenter by developing scripts using technologies such as JavaScript, PHP, Lua, Shell Script, and SQL",
-          "Designed servers and clouds (AWS) according to the software (LAMP, Node JS) and customers' needs",
+          "Designed performant, maintainable, and scalable servers and services using low-cost solutions, reducing the costs up to 50%",
         ],
         position: "Systems Administrator",
         city: "Soledade (Brazil)",
     },
     {
-      company: "SMO Internet provider",
+      company: "SMO Internet Provider",
       date: "Jan 2012 - Nov 2013",
       details: [
-        "Worked together with clients to create servers and clouds (VMWARE) to deliver solutions according to their's needs",
-        "Designed performant, maintainable, and scalable servers and services using low-cost solutions, reducing the costs up to 50%",
+        "Worked together with clients to create servers and clouds (VMWARE/ AWS) to deliver solutions according to theirs' needs",
         "Maintained hardware and networks, updated components, corrected errors, providing Customer Service",
+        "Proposed the complete replacement of paid systems by Open-Source, solutions, generating savings of over 20% of the budget"
       ],
       position: "Systems Administrator",
       city: "Sao Miguel do Oeste (Brazil)",
@@ -73,9 +74,9 @@ const Main = () => {
       company: "DCI Digital Career Institute GmbH, Berlin",
       date: "Set 2019 - Jan 2021",
       details: [
-        "Accomplishing a one-year-full-time training with technologies from MERN stack",
-        "Completing more than 5 complete projects and serveral small projects to practice the learned technologies",
-        "Taking C1 German course as part of the training.",
+        "One year intensive-full-time training including technologies from MERN stack",
+        "Conceptualized and developed over 25 projects individually and 3 Full Stack projects in group",
+        "Successfully led 2 group projects using Agile Methodologies",
       ],
       position: "Certificate, Full Stack Web Development Course",
       city: "Berlin",

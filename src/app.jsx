@@ -44,7 +44,7 @@ export function CoverLetter({ data, colors, cvData, coverLetterData }) {
     ? { borderWidth: 1, borderColor: "red", borderStyle: "solid" }
     : "";
 
-  const downloadCoverLetter = false;
+  const downloadCoverLetter = true;
 
   const coverLetterStyles = StyleSheet.create({
     //head of the coverletter

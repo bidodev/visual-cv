@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
 
   heading: {
-    fontSize: 25,
+    fontSize: 23,
     textTransform: "uppercase",
     marginBottom: 2,
   },

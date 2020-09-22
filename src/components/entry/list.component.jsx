@@ -8,8 +8,8 @@ import { sharedStyles } from "../../helpers/shared/global.styles";
 const { paragraph, sectionTitle } = sharedStyles;
 
 const styles = StyleSheet.create({
-  work: {
-    marginTop: 20,
+  section: {
+    marginTop: 15,
     height: "auto",
   },
   wrapper: {},
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     fontSize: 8.5,
     fontFamily: "Poppins",
     marginTop: "2",
-    marginBottom: 10,
+    marginBottom: 8,
 
   },
   date: {
@@ -62,7 +62,7 @@ const ExperienceEntry = ({ company, details, position, date, city }) => {
 
 const Career = ({ data, title }) => {
   return (
-    <View style={styles.work}>
+    <View style={styles.section}>
       <Text style={sectionTitle}>{title}</Text>
       {data.map(({ ...entry }) => (
         <ExperienceEntry {...entry} />

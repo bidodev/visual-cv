@@ -17,6 +17,7 @@ const Curriculum = ({ colors }) => {
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
+      height: 820,
     },
   });
 

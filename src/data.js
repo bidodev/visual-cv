@@ -47,7 +47,7 @@ const COLORS = {
 
 const USER_DATA = {
   //userDetails
-  name: "Rafael Bido",
+  name: "Maurice Bido",
   position: "Software Engineer",
   street: "Landgrafenstr",
   houseNumber: 19,
