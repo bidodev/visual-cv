@@ -2,7 +2,7 @@ import React from "react";
 import { icons } from "./constants";
 
 //helpers
-import generateData from "./helpers/date";
+import generateData from "helpers/date";
 
 //coverLetter components
 import UserDetails from "./coverletter/UserDetails";
